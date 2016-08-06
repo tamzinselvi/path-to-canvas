@@ -13,15 +13,23 @@
 
     while (match = /([MmCcLlZzVvHhSsQqTtAa])([^MmCcLlZzVvHhSsQqTtAa]*)/.exec(pathStr)) {
       switch (match[1]) {
+        var args = match[2].trim().split(",");
         case "M":
-          ctx.moveTo.apply(ctx, match[2].trim().split(","));
+          this.position = match[2].trim().split(",");
+          ctx.moveTo.apply(ctx, this.position);
           break;
         case "C":
-          ctx.bezierCurveTo.apply(ctx, match[2].trim().split(","));
+          this.position = args.slice(2, 4);
+          ctx.bezierCurveTo.apply(ctx, args);
           break;
         case "L":
-          ctx.lineTo.apply(ctx, match[2].trim().split(","));
+          this.position = args.slice(2, 4);
+          ctx.lineTo.apply(ctx, args);
           break;
+        case "V":
+          args = [this.position[0], this.position[1], this.position[0], args[0]];
+          this.position = args.slice(2, 4);
+          ctx.lineTo.apply(ctx, args);
       }
 
       pathStr = pathStr.substr(match[0].length);
