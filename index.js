@@ -12,8 +12,8 @@
     ctx.beginPath();
 
     while (match = /([MmCcLlZzVvHhSsQqTtAa])([^MmCcLlZzVvHhSsQqTtAa]*)/.exec(pathStr)) {
+      var args = match[2].trim().split(",");
       switch (match[1]) {
-        var args = match[2].trim().split(",");
         case "M":
           this.position = match[2].trim().split(",");
           ctx.moveTo.apply(ctx, this.position);
