@@ -1,0 +1,24 @@
+{
+  "name": "path-to-canvas",
+  "version": "0.0.1",
+  "description": "A module to draw SVG path data to canvas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomselvi/path-to-canvas.git"
+  },
+  "keywords": [
+    "svg",
+    "canvas",
+    "path"
+  ],
+  "author": "Tom Selvi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomselvi/path-to-canvas/issues"
+  },
+  "homepage": "https://github.com/tomselvi/path-to-canvas#readme"
+}
