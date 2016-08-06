@@ -14,13 +14,13 @@
     while (match = /([MmCcLlZzVvHhSsQqTtAa])([^MmCcLlZzVvHhSsQqTtAa]*)/.exec(pathStr)) {
       switch (match[1]) {
         case "M":
-          ctx.moveTo.call(match[2].trim().split(","));
+          ctx.moveTo.apply(ctx, match[2].trim().split(","));
           break;
         case "C":
-          ctx.bezierCurveTo.call(match[2].trim().split(","));
+          ctx.bezierCurveTo.apply(ctx, match[2].trim().split(","));
           break;
         case "L":
-          ctx.lineTo.call(match[2].trim().split(","));
+          ctx.lineTo.apply(ctx, match[2].trim().split(","));
           break;
       }
 
